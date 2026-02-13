@@ -3,19 +3,40 @@ import type { PageContent } from "../types";
 export const contactoPageContent = {
   title: "Contacto",
   description:
-    "Agenda una sesión de diagnóstico con nuestro equipo técnico para evaluar tu caso.",
+    "Envíanos tu lista por WhatsApp y te respondemos con precio y disponibilidad.",
   sections: [
     {
       id: "hero",
-      heading: "Contacto",
+      heading: "Cotiza en minutos",
+      subheading: "WhatsApp directo",
       body:
-        "Agenda una sesión de diagnóstico con nuestro equipo técnico para evaluar tu caso.",
+        "Envíanos tu lista por WhatsApp y te respondemos con precio y disponibilidad.",
+    },
+    {
+      id: "contact-cards",
+      heading: "Atención inmediata por WhatsApp",
+      body:
+        "Escríbenos para cotización rápida de menudeo o mayoreo.",
+      bullets: ["+52 221 515 3285", "222 296 6241", "221 407 8087"],
+      items: [
+        {
+          kind: "contact",
+          title: "Enviar WhatsApp",
+          description:
+            "Comparte tu lista de productos y cantidades para recibir precio y disponibilidad.",
+          cta: {
+            label: "Enviar WhatsApp",
+            href: "https://wa.me/522229995593",
+            variant: "primary",
+          },
+        },
+      ],
     },
     {
       id: "form",
-      heading: "Hablemos de tu operación",
+      heading: "¿Prefieres formulario?",
       body:
-        "Completa el formulario y te responderemos con una propuesta alineada a tu necesidad.",
+        "Si es urgente, WhatsApp es más rápido.",
       items: [
         {
           kind: "formField",
@@ -27,81 +48,35 @@ export const contactoPageContent = {
         },
         {
           kind: "formField",
-          name: "empresa",
-          label: "Empresa",
-          type: "text",
+          name: "interes",
+          label: "Tipo de cliente",
+          type: "select",
           required: true,
-          placeholder: "Nombre de tu empresa",
-        },
-        {
-          kind: "formField",
-          name: "email",
-          label: "Email",
-          type: "email",
-          required: true,
-          placeholder: "nombre@empresa.com",
+          options: [
+            { label: "Menudeo", value: "Menudeo" },
+            { label: "Mayoreo", value: "Mayoreo" },
+          ],
         },
         {
           kind: "formField",
           name: "telefono",
-          label: "Teléfono (recomendado)",
+          label: "Teléfono (opcional)",
           type: "tel",
           required: false,
-          placeholder: "+56 9 1234 5678",
-        },
-        {
-          kind: "formField",
-          name: "interes",
-          label: "Interés",
-          type: "select",
-          required: true,
-          options: [
-            { label: "Demo", value: "Demo" },
-            { label: "Cotización", value: "Cotización" },
-          ],
+          placeholder: "+52 221 515 3285",
         },
         {
           kind: "formField",
           name: "mensaje",
           label: "Mensaje",
           type: "textarea",
-          required: false,
-          placeholder: "Cuéntanos sobre tu operación y objetivos.",
+          required: true,
+          placeholder: "Escribe tu pedido o lo que necesitas cotizar.",
         },
         {
           kind: "formSubmit",
-          label: "Enviar solicitud",
+          label: "Enviar formulario",
         },
-      ],
-    },
-    {
-      id: "contact-cards",
-      heading: "",
-      items: [
-        {
-          kind: "contact",
-          title: "Reserva una demo",
-          description:
-            "Agenda una sesión guiada con nuestro equipo para revisar tu caso y validar el alcance de la implementación.",
-          cta: { label: "Reserva una demo", href: "/contacto", variant: "primary" },
-        },
-        {
-          kind: "contact",
-          title: "Cotiza aquí",
-          description:
-            "Comparte el contexto de tu operación y obtén una propuesta alineada a tus necesidades.",
-          cta: { label: "Cotiza aquí", href: "/contacto", variant: "secondary" },
-        },
-      ],
-    },
-    {
-      id: "cta",
-      heading: "¿Listo para implementar tecnología estratégica?",
-      body:
-        "Agenda una sesión de diagnóstico con nuestro equipo técnico. Sin compromiso. Evaluamos tu caso específico y definimos si existe un fit estratégico.",
-      items: [
-        { kind: "cta", label: "Agendar consulta", href: "/contacto", variant: "primary" },
-        { kind: "cta", label: "Ver casos de uso", href: "/servicios", variant: "secondary" },
       ],
     },
   ],

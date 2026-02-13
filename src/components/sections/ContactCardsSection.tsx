@@ -9,20 +9,32 @@ type ContactCardsSectionProps = {
 const isContactCard = (item: SectionItem): item is ContactCardItem =>
   item.kind === "contact";
 
+const getLinkProps = (href: string) =>
+  href.startsWith("http")
+    ? { target: "_blank", rel: "noopener noreferrer" }
+    : {};
+
 export function ContactCardsSection({ section }: ContactCardsSectionProps) {
   const items = section.items ?? [];
   const cards = items.filter(isContactCard);
 
   return (
-    <section className="py-20">
-      <div className="max-w-[1000px] mx-auto px-6 lg:px-12">
+    <section className="section-pad">
+      <div className="mx-auto w-full max-w-[1000px] px-6 lg:px-10">
         {(section.heading || section.body) ? (
           <div className="max-w-2xl mb-10">
             {section.heading ? (
-              <h2 className="text-2xl mb-3">{section.heading}</h2>
+              <h2 className="text-2xl text-neutral-900 mb-3">{section.heading}</h2>
             ) : null}
             {section.body ? (
-              <p className="text-zinc-400 leading-relaxed">{section.body}</p>
+              <p className="text-neutral-600 leading-relaxed">{section.body}</p>
+            ) : null}
+            {(section.bullets ?? []).length > 0 ? (
+              <ul className="mt-4 space-y-1 text-neutral-700">
+                {section.bullets?.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
             ) : null}
           </div>
         ) : null}
@@ -30,19 +42,20 @@ export function ContactCardsSection({ section }: ContactCardsSectionProps) {
           {cards.map((card) => (
             <div
               key={card.title}
-              className="bg-zinc-900 border border-zinc-800 rounded-lg p-8"
+              className="card-soft p-8"
             >
-              <h3 className="text-2xl mb-4">{card.title}</h3>
-              <p className="text-zinc-400 leading-relaxed mb-6">
+              <h3 className="text-2xl text-neutral-900 mb-4">{card.title}</h3>
+              <p className="text-neutral-600 leading-relaxed mb-6">
                 {card.description}
               </p>
               <Link
                 href={card.cta.href}
                 className={
                   card.cta.variant === "primary"
-                    ? "inline-flex px-6 py-3 bg-zinc-100 text-zinc-950 hover:bg-zinc-200 transition-colors"
-                    : "inline-flex px-6 py-3 border border-zinc-700 text-zinc-100 hover:border-zinc-600 hover:bg-zinc-900 transition-colors"
+                    ? "btn-primary px-8 py-4 text-base"
+                    : "btn-secondary"
                 }
+                {...getLinkProps(card.cta.href)}
               >
                 {card.cta.label}
               </Link>

@@ -77,18 +77,18 @@ export function FeaturesGridSection({ section }: FeaturesGridSectionProps) {
   const features = items.filter(isFeature);
 
   return (
-    <section id="servicios" className="py-24 lg:py-32">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <section id={section.id} className="section-pad">
+      <div className="site-container">
         <div className="max-w-2xl mb-16">
           {section.subheading ? (
-            <div className="text-xs text-zinc-500 tracking-wider uppercase mb-4">
+            <div className="text-xs text-neutral-500 tracking-wider uppercase mb-4">
               {section.subheading}
             </div>
           ) : null}
           <h2 className="text-4xl lg:text-5xl tracking-tight mb-6">
             {section.heading}
           </h2>
-          <p className="text-lg text-zinc-400 leading-relaxed">
+          <p className="text-lg text-neutral-600 leading-relaxed">
             {section.body}
           </p>
         </div>
@@ -97,13 +97,13 @@ export function FeaturesGridSection({ section }: FeaturesGridSectionProps) {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="bg-zinc-900 border border-zinc-800 rounded-lg p-8 hover:border-zinc-700 transition-colors"
+              className="card-soft p-8 transition-shadow hover:shadow-md"
             >
-              <div className="w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center mb-6 text-zinc-300">
+              <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6 text-[var(--primary)]">
                 {iconMap[feature.icon]}
               </div>
-              <h3 className="text-xl mb-4">{feature.title}</h3>
-              <p className="text-zinc-400 leading-relaxed">
+              <h3 className="text-xl text-neutral-900 mb-4">{feature.title}</h3>
+              <p className="text-neutral-600 leading-relaxed">
                 {feature.description}
               </p>
             </div>

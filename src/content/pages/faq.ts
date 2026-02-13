@@ -3,62 +3,67 @@ import type { PageContent } from "../types";
 export const faqPageContent = {
   title: "FAQ",
   description:
-    "Respuestas a consultas comunes sobre implementación, integración y operación.",
+    "Respuestas rápidas sobre pedidos, mayoreo y atención en sucursal.",
   sections: [
     {
       id: "hero",
       heading: "Preguntas frecuentes",
       subheading: "FAQ",
       body:
-        "Respuestas a consultas comunes sobre implementación, integración y operación.",
+        "Resolvemos dudas comunes de compra para menudeo y mayoreo.",
     },
     {
       id: "faq",
       heading: "Preguntas frecuentes",
       subheading: "FAQ",
       body:
-        "Respuestas a consultas comunes sobre implementación, integración y operación.",
+        "Respuestas rápidas sobre pedidos, mayoreo y atención en sucursal.",
       items: [
         {
           kind: "faq",
-          question: "¿Qué tipo de instituciones trabajan con Nodo 88?",
+          question: "¿Venden por mayoreo?",
           answer:
-            "Trabajamos con fintechs, bancos, retail financiero y telecomunicaciones que requieren gestión de riesgo crediticio, financiamiento de dispositivos o cobranza estructurada. Nuestros clientes típicamente tienen operaciones en múltiples países y necesitan control normativo estricto.",
+            "Sí, atendemos mayoreo para escuelas, oficinas y negocios. Envíanos tu lista por WhatsApp para cotizar rápido.",
         },
         {
           kind: "faq",
-          question: "¿Cómo se integra con sistemas existentes?",
+          question: "¿Puedo pedir por WhatsApp?",
           answer:
-            "Nuestra plataforma se integra mediante APIs REST documentadas y webhooks. Soportamos conexión con core bancarios, ERPs, CRMs y bureaus de crédito. El proceso de integración es guiado y cuenta con ambientes de testing previos a producción.",
+            "Sí, es nuestro canal principal para pedidos y cotizaciones. Escríbenos por WhatsApp y te confirmamos disponibilidad.",
         },
         {
           kind: "faq",
-          question: "¿Cuánto tiempo toma la implementación?",
+          question: "¿Hacen entregas a domicilio?",
           answer:
-            "Depende del alcance del proyecto. Una implementación estándar toma entre 8 y 12 semanas, incluyendo integración, configuración de reglas de negocio, capacitación y estabilización. Proyectos enterprise con múltiples módulos pueden extenderse según complejidad.",
+            "En algunos pedidos podemos coordinar entrega local. Escríbenos por WhatsApp para revisar cobertura y tiempos.",
         },
         {
           kind: "faq",
-          question: "¿Qué nivel de personalización es posible?",
+          question: "¿Facturan?",
           answer:
-            "La plataforma es altamente configurable: reglas de scoring, flujos de cobranza, dashboards, integraciones y reportería pueden ajustarse sin código. Para casos que requieren lógica específica, ofrecemos desarrollo custom dentro del roadmap del proyecto.",
+            "Sí, emitimos factura. Compártenos tus datos por WhatsApp para agilizar tu pedido.",
         },
         {
           kind: "faq",
-          question: "¿Qué garantías de seguridad y cumplimiento ofrecen?",
+          question: "¿Manejan productos especiales o difíciles de encontrar?",
           answer:
-            "Cumplimos con estándares SOC 2, cifrado en tránsito y reposo, auditoría de accesos y logs completos de operaciones. Cada cliente tiene ambientes segregados. Contamos con procesos certificados de gestión de incidentes y recuperación ante desastres.",
+            "Sí, te ayudamos a buscar productos específicos según disponibilidad. Mándanos por WhatsApp lo que necesitas.",
         },
       ],
     },
     {
       id: "cta",
-      heading: "¿Listo para implementar tecnología estratégica?",
+      heading: "¿Listo para cotizar tu pedido?",
       body:
-        "Agenda una sesión de diagnóstico con nuestro equipo técnico. Sin compromiso. Evaluamos tu caso específico y definimos si existe un fit estratégico.",
+        "Te atendemos por WhatsApp para pedidos por volumen y compras recurrentes.",
       items: [
-        { kind: "cta", label: "Agendar consulta", href: "/contacto", variant: "primary" },
-        { kind: "cta", label: "Ver casos de uso", href: "/servicios", variant: "secondary" },
+        {
+          kind: "cta",
+          label: "Cotizar por WhatsApp",
+          href: "https://wa.me/522229995593",
+          variant: "primary",
+        },
+        { kind: "cta", label: "Ver servicios", href: "/servicios", variant: "secondary" },
       ],
     },
   ],

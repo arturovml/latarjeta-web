@@ -10,8 +10,6 @@ type ContactFormSectionProps = {
 
 type FormValues = {
   nombre: string;
-  empresa: string;
-  email: string;
   telefono: string;
   interes: string;
   mensaje: string;
@@ -27,8 +25,6 @@ const isSubmit = (item: SectionItem): item is FormSubmitItem =>
 
 const initialValues: FormValues = {
   nombre: "",
-  empresa: "",
-  email: "",
   telefono: "",
   interes: "",
   mensaje: "",
@@ -51,15 +47,9 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
   const validate = (nextValues: FormValues) => {
     const nextErrors: FormErrors = {};
     if (!nextValues.nombre.trim()) nextErrors.nombre = "Ingresa tu nombre.";
-    if (!nextValues.empresa.trim()) nextErrors.empresa = "Ingresa tu empresa.";
-    if (!nextValues.email.trim()) {
-      nextErrors.email = "Ingresa un email válido.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(nextValues.email)) {
-      nextErrors.email = "Email inválido.";
-    }
-    if (!nextValues.interes.trim()) nextErrors.interes = "Selecciona un interés.";
-    if (nextValues.mensaje.trim().length < 10) {
-      nextErrors.mensaje = "Escribe un mensaje de al menos 10 caracteres.";
+    if (!nextValues.interes.trim()) nextErrors.interes = "Selecciona el tipo de cliente.";
+    if (!nextValues.mensaje.trim()) {
+      nextErrors.mensaje = "Escribe tu mensaje.";
     }
     return nextErrors;
   };
@@ -87,11 +77,11 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
         },
         body: JSON.stringify({
           name: values.nombre,
-          email: values.email,
-          company: values.empresa,
+          email: "contacto-form@latarjeta.mx",
+          company: values.interes,
           phone: values.telefono,
           message: values.mensaje,
-          source: "contacto",
+          source: "contacto_form_secundario",
           website: values.website,
         }),
       });
@@ -126,12 +116,12 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
   };
 
   return (
-    <section className="py-20">
-      <div className="max-w-[900px] mx-auto px-6 lg:px-12">
+    <section className="section-pad">
+      <div className="mx-auto w-full max-w-[900px] px-6 lg:px-10">
         <div className="mb-10">
-          <h2 className="text-3xl mb-4">{section.heading}</h2>
+          <h2 className="text-3xl text-neutral-900 mb-4">{section.heading}</h2>
           {section.body ? (
-            <p className="text-zinc-400 leading-relaxed">{section.body}</p>
+            <p className="text-neutral-600 leading-relaxed">{section.body}</p>
           ) : null}
         </div>
 
@@ -152,13 +142,12 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
             {fields.map((field) => {
               const id = `contact-${field.name}`;
               const error = errors[field.name];
-              const commonClasses =
-                "mt-2 w-full rounded-md border border-zinc-800 bg-zinc-950 px-4 py-3 text-zinc-100 placeholder:text-zinc-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950";
+              const commonClasses = "input-base";
 
               if (field.type === "textarea") {
                 return (
                   <div key={field.name} className="md:col-span-2">
-                    <label htmlFor={id} className="text-sm text-zinc-200">
+                    <label htmlFor={id} className="text-sm text-neutral-800">
                       {field.label}
                     </label>
                     <textarea
@@ -175,7 +164,7 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
                       placeholder={field.placeholder}
                     />
                     {error ? (
-                      <p className="mt-2 text-sm text-red-400">{error}</p>
+                      <p className="mt-2 text-sm text-red-700">{error}</p>
                     ) : null}
                   </div>
                 );
@@ -184,7 +173,7 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
               if (field.type === "select") {
                 return (
                   <div key={field.name} className="md:col-span-2">
-                    <label htmlFor={id} className="text-sm text-zinc-200">
+                    <label htmlFor={id} className="text-sm text-neutral-800">
                       {field.label}
                     </label>
                     <select
@@ -206,7 +195,7 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
                       ))}
                     </select>
                     {error ? (
-                      <p className="mt-2 text-sm text-red-400">{error}</p>
+                      <p className="mt-2 text-sm text-red-700">{error}</p>
                     ) : null}
                   </div>
                 );
@@ -214,7 +203,7 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
 
               return (
                 <div key={field.name}>
-                  <label htmlFor={id} className="text-sm text-zinc-200">
+                  <label htmlFor={id} className="text-sm text-neutral-800">
                     {field.label}
                   </label>
                   <input
@@ -231,7 +220,7 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
                     placeholder={field.placeholder}
                   />
                   {error ? (
-                    <p className="mt-2 text-sm text-red-400">{error}</p>
+                    <p className="mt-2 text-sm text-red-700">{error}</p>
                   ) : null}
                 </div>
               );
@@ -240,7 +229,7 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
 
           <button
             type="submit"
-            className="inline-flex px-6 py-3 bg-zinc-100 text-zinc-950 hover:bg-zinc-200 transition-colors"
+            className="btn-primary"
             disabled={status === "loading"}
           >
             {status === "loading"
@@ -251,7 +240,7 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
           {status === "success" ? (
             <div
               role="status"
-              className="rounded-md border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-emerald-200"
+              className="rounded-md border border-emerald-200 bg-emerald-50 px-4 py-3 text-emerald-800"
             >
               <p>{statusMessage ?? "Gracias por tu interés. Te contactaremos pronto."}</p>
             </div>
@@ -260,11 +249,11 @@ export function ContactFormSection({ section }: ContactFormSectionProps) {
           {status === "error" ? (
             <div
               role="alert"
-              className="rounded-md border border-red-500/30 bg-red-500/10 px-4 py-3 text-red-200"
+              className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-red-800"
             >
               <p>{statusMessage ?? "No pudimos enviar tu mensaje."}</p>
               {devMessage ? (
-                <p className="mt-2 text-sm text-red-100/80">{devMessage}</p>
+                <p className="mt-2 text-sm text-red-700">{devMessage}</p>
               ) : null}
             </div>
           ) : null}

@@ -6,6 +6,7 @@ export type NavItem = {
 export type CtaLink = {
   label: string;
   href: string;
+  external?: boolean;
 };
 
 export type CtaItem = {
@@ -18,7 +19,14 @@ export type CtaItem = {
 export type ContactInfo = {
   email: string;
   phone?: string;
+  phones?: string[];
   address?: string;
+  whatsapp?: string;
+};
+
+export type SocialLink = {
+  label: string;
+  href: string;
 };
 
 export type SiteContent = {
@@ -43,7 +51,8 @@ export type SiteContent = {
     services: string[];
     company: string[];
     legal: string[];
-    social: string[];
+    social: SocialLink[];
+    quickLinks: SocialLink[];
     copyright: string;
   };
 };
@@ -126,6 +135,15 @@ export type FormSubmitItem = {
   label: string;
 };
 
+export type BranchItem = {
+  kind: "branch";
+  name: string;
+  address: string;
+  hours: string;
+  phone?: string;
+  mapsHref: string;
+};
+
 export type SectionItem =
   | FeatureItem
   | ProcessStep
@@ -137,7 +155,8 @@ export type SectionItem =
   | CtaItem
   | ContactCardItem
   | FormFieldItem
-  | FormSubmitItem;
+  | FormSubmitItem
+  | BranchItem;
 
 export type SectionContent = {
   id: string;

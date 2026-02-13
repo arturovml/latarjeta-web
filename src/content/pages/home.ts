@@ -3,159 +3,233 @@ import type { PageContent } from "../types";
 export const homePageContent = {
   title: "Inicio",
   description:
-    "Tecnología estratégica para instituciones financieras y retail con operaciones de riesgo.",
+    "Papelería y artículos de oficina en Puebla con atención por WhatsApp para menudeo y mayoreo.",
   sections: [
     {
       id: "hero",
-      heading: "Tecnología estratégica para reducir riesgo",
-      subheading: "Partner tecnológico",
+      heading: "Papelería y artículos de oficina en Puebla",
+      subheading: "Más de 30 años abasteciendo a escuelas, oficinas y negocios con gran variedad, marcas confiables y respuesta rápida.",
       body:
-        "Implementamos soluciones tecnológicas para riesgo crediticio, financiamiento de dispositivos y cobranza. Orientado a fintechs, bancos y retail que necesitan control operativo y decisiones basadas en datos.",
+        "Atendemos clientes de menudeo y mayoreo con enfoque local en Puebla, inventario amplio y respuesta rápida.",
+      bullets: [
+        "Mayoreo y menudeo",
+        "3 sucursales en el Centro Histórico",
+        "Atención directa por WhatsApp",
+      ],
       items: [
-        { kind: "metric", label: "NPL", value: "2.4%" },
-        { kind: "metric", label: "Aprobación", value: "68%" },
-        { kind: "metric", label: "Recovery", value: "81%" },
         {
-          kind: "chart",
-          label: "Evolución de riesgo mensual",
-          bars: [40, 65, 55, 80, 70, 85, 75, 90],
+          kind: "cta",
+          label: "Cotizar por WhatsApp",
+          href: "https://wa.me/522229995593",
+          variant: "primary",
         },
-        { kind: "status", label: "Sistema activo", value: "99.8% uptime", tone: "success" },
-        { kind: "status", label: "Procesos", value: "1,247 activos", tone: "neutral" },
-        { kind: "cta", label: "Conocer servicios", href: "/servicios", variant: "primary" },
-        { kind: "cta", label: "Agendar demo", href: "/contacto", variant: "secondary" },
+        {
+          kind: "cta",
+          label: "Ver categorías",
+          href: "#categorias",
+          variant: "secondary",
+        },
       ],
     },
     {
-      id: "stats",
-      heading: "Indicadores",
-      items: [
-        { kind: "stat", value: "15+", label: "Años de experiencia combinada" },
-        { kind: "stat", value: "120M+", label: "USD en cartera gestionada" },
-        { kind: "stat", value: "99.8%", label: "Disponibilidad del sistema" },
-        { kind: "stat", value: "8", label: "Países de operación" },
-      ],
-    },
-    {
-      id: "features",
-      heading: "Control operativo y decisiones basadas en datos",
-      subheading: "Servicios",
-      body:
-        "Tecnología diseñada para instituciones que requieren precisión, escalabilidad y cumplimiento normativo.",
+      id: "beneficios",
+      heading: "Beneficios",
+      body: "Atención práctica para compras de oficina, escuela y negocio con respuesta directa.",
       items: [
         {
           kind: "feature",
           icon: "shield",
-          title: "Gestión de riesgo crediticio",
-          description:
-            "Modelos de scoring, análisis de capacidad de pago y seguimiento continuo de cartera. Integración con bureaus y fuentes de datos alternativas.",
+          title: "Variedad real",
+          description: "Amplio surtido de papelería escolar, oficina y materiales de apoyo.",
         },
         {
           kind: "feature",
           icon: "database",
-          title: "Financiamiento de dispositivos",
-          description:
-            "Soluciones tecnológicas para lease, renting y financiación de hardware. Control de garantías y gestión de recuperación de activos.",
+          title: "Mayoreo especializado",
+          description: "Atención para pedidos por volumen de escuelas, oficinas y negocios.",
         },
         {
           kind: "feature",
           icon: "trend",
-          title: "Cobranza inteligente",
-          description:
-            "Automatización de estrategias de cobranza preventiva y correctiva. Segmentación de cartera y optimización de recursos.",
+          title: "Productos difíciles de encontrar",
+          description: "Opciones específicas para proyectos escolares, oficina y manualidades.",
         },
         {
           kind: "feature",
           icon: "chart",
-          title: "Reportería y cumplimiento",
-          description:
-            "Dashboards ejecutivos en tiempo real. Métricas regulatorias y documentación de auditoría. Trazabilidad completa de operaciones.",
+          title: "Atención humana",
+          description: "Te atendemos directo por WhatsApp para resolver rápido tu pedido.",
+        },
+        {
+          kind: "feature",
+          icon: "shield",
+          title: "Entrega local (B2B)",
+          description: "Coordinamos entrega local para cuentas de mayoreo cuando aplica.",
+        },
+        {
+          kind: "feature",
+          icon: "database",
+          title: "Servicio en sucursal",
+          description: "Tres puntos de atención en el Centro Histórico de Puebla.",
         },
       ],
     },
     {
-      id: "process",
-      heading: "Implementación responsable y estructurada",
-      subheading: "Proceso",
+      id: "categorias",
+      heading: "Categorías",
       body:
-        "Metodología probada que minimiza riesgo operativo y asegura adopción efectiva por parte de los equipos.",
+        "Encuentra productos para escuela, oficina y negocio en un solo lugar.",
+      bullets: [
+        "Útiles escolares",
+        "Oficina",
+        "Papel y cartulinas",
+        "Arte y manualidades",
+        "Escritura (plumas, lápices, marcadores)",
+        "Organización y archivo",
+        "Impresión y consumibles",
+        "Temporada escolar",
+      ],
+    },
+    {
+      id: "mayoreo",
+      heading: "¿Eres escuela, oficina o negocio? Tenemos mayoreo.",
+      body:
+        "Atención B2B ágil para compras por volumen y reposición de inventario.",
+      bullets: [
+        "Precios por volumen según lista solicitada",
+        "Atención directa y seguimiento por WhatsApp",
+        "Coordinación para recolección o entrega local cuando aplique",
+      ],
       items: [
         {
           kind: "step",
           number: "01",
-          title: "Diagnóstico inicial",
-          description:
-            "Análisis de procesos actuales, identificación de puntos críticos y definición de objetivos medibles.",
+          title: "Envíanos tu lista por WhatsApp",
+          description: "Comparte productos y cantidades para iniciar tu cotización.",
         },
         {
           kind: "step",
           number: "02",
-          title: "Diseño de solución",
-          description:
-            "Configuración de módulos, integración con sistemas existentes y definición de flujos de trabajo.",
+          title: "Confirmamos precio y disponibilidad",
+          description: "Validamos existencias y te enviamos propuesta.",
         },
         {
           kind: "step",
           number: "03",
-          title: "Implementación guiada",
-          description:
-            "Deploy controlado, capacitación de equipos y establecimiento de protocolos de operación.",
+          title: "Pagas (transferencia u otros métodos acordados)",
+          description: "Cerramos pedido con el método de pago definido.",
         },
         {
           kind: "step",
           number: "04",
-          title: "Optimización continua",
-          description:
-            "Monitoreo de KPIs, ajuste de modelos y mejora iterativa basada en datos reales.",
+          title: "Recoges en sucursal o coordinamos entrega local",
+          description: "Te compartimos seguimiento hasta la entrega.",
+        },
+        {
+          kind: "cta",
+          label: "Solicitar precio de mayoreo",
+          href: "https://wa.me/522229995593",
+          variant: "primary",
         },
       ],
     },
     {
-      id: "cta",
-      heading: "¿Listo para implementar tecnología estratégica?",
+      id: "servicios",
+      heading: "Servicios",
       body:
-        "Agenda una sesión de diagnóstico con nuestro equipo técnico. Sin compromiso. Evaluamos tu caso específico y definimos si existe un fit estratégico.",
-      items: [
-        { kind: "cta", label: "Agendar consulta", href: "/contacto", variant: "primary" },
-        { kind: "cta", label: "Ver casos de uso", href: "/servicios", variant: "secondary" },
+        "Servicios sujetos a disponibilidad por sucursal.",
+      bullets: [
+        "Fotocopiado",
+        "Impresión",
+        "Encuadernado",
+        "Material especializado para manualidades y proyectos",
       ],
+    },
+    {
+      id: "sucursales",
+      heading: "Visítanos en el Centro Histórico de Puebla",
+      body:
+        "Conoce nuestras sucursales para compras directas y atención cercana.",
+      items: [
+        {
+          kind: "branch",
+          name: "Sucursal 8 Oriente",
+          address: "Av. 8 Oriente 11-A, Centro, Puebla",
+          hours: "10:00–19:00 (Domingo aprox. 18:00)",
+          phone: "+52 221 515 3285",
+          mapsHref: "#",
+        },
+        {
+          kind: "branch",
+          name: "Sucursal 5 Norte 805",
+          address: "Calle 5 Norte 805, Centro Histórico, Puebla",
+          hours: "10:00–19:00",
+          mapsHref: "#",
+        },
+        {
+          kind: "branch",
+          name: "Sucursal 5 Norte 403",
+          address: "Calle 5 Norte 403, Centro Histórico, Puebla",
+          hours: "10:00–19:00",
+          mapsHref: "#",
+        },
+      ],
+    },
+    {
+      id: "marcas",
+      heading: "Trabajamos con marcas reconocidas",
+      body:
+        "Seleccionamos productos de calidad para garantizar buen rendimiento y durabilidad en cada compra.",
     },
     {
       id: "faq",
       heading: "Preguntas frecuentes",
       subheading: "FAQ",
-      body:
-        "Respuestas a consultas comunes sobre implementación, integración y operación.",
+      body: "Resolvemos fricciones comunes antes de que hagas tu pedido.",
       items: [
         {
           kind: "faq",
-          question: "¿Qué tipo de instituciones trabajan con Nodo 88?",
+          question: "¿Venden por mayoreo?",
           answer:
-            "Trabajamos con fintechs, bancos, retail financiero y telecomunicaciones que requieren gestión de riesgo crediticio, financiamiento de dispositivos o cobranza estructurada. Nuestros clientes típicamente tienen operaciones en múltiples países y necesitan control normativo estricto.",
+            "Sí, atendemos mayoreo para escuelas, oficinas y negocios. Envíanos tu lista por WhatsApp para cotizar rápido.",
         },
         {
           kind: "faq",
-          question: "¿Cómo se integra con sistemas existentes?",
+          question: "¿Puedo pedir por WhatsApp?",
           answer:
-            "Nuestra plataforma se integra mediante APIs REST documentadas y webhooks. Soportamos conexión con core bancarios, ERPs, CRMs y bureaus de crédito. El proceso de integración es guiado y cuenta con ambientes de testing previos a producción.",
+            "Sí, es nuestro canal principal para pedidos y cotizaciones. Escríbenos por WhatsApp y te confirmamos disponibilidad.",
         },
         {
           kind: "faq",
-          question: "¿Cuánto tiempo toma la implementación?",
+          question: "¿Hacen entregas a domicilio?",
           answer:
-            "Depende del alcance del proyecto. Una implementación estándar toma entre 8 y 12 semanas, incluyendo integración, configuración de reglas de negocio, capacitación y estabilización. Proyectos enterprise con múltiples módulos pueden extenderse según complejidad.",
+            "En algunos pedidos podemos coordinar entrega local. Escríbenos por WhatsApp para revisar cobertura y tiempos.",
         },
         {
           kind: "faq",
-          question: "¿Qué nivel de personalización es posible?",
+          question: "¿Facturan?",
           answer:
-            "La plataforma es altamente configurable: reglas de scoring, flujos de cobranza, dashboards, integraciones y reportería pueden ajustarse sin código. Para casos que requieren lógica específica, ofrecemos desarrollo custom dentro del roadmap del proyecto.",
+            "Sí, emitimos factura. Compártenos tus datos por WhatsApp para agilizar tu pedido.",
         },
         {
           kind: "faq",
-          question: "¿Qué garantías de seguridad y cumplimiento ofrecen?",
+          question: "¿Manejan productos especiales o difíciles de encontrar?",
           answer:
-            "Cumplimos con estándares SOC 2, cifrado en tránsito y reposo, auditoría de accesos y logs completos de operaciones. Cada cliente tiene ambientes segregados. Contamos con procesos certificados de gestión de incidentes y recuperación ante desastres.",
+            "Sí, te ayudamos a buscar productos específicos según disponibilidad. Mándanos por WhatsApp lo que necesitas.",
+        },
+      ],
+    },
+    {
+      id: "cta-final",
+      heading: "Cotiza en minutos",
+      body:
+        "Envíanos tu lista por WhatsApp y te respondemos con precio y disponibilidad.",
+      items: [
+        {
+          kind: "cta",
+          label: "Enviar WhatsApp",
+          href: "https://wa.me/522229995593",
+          variant: "primary",
         },
       ],
     },

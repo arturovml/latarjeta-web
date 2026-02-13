@@ -1,19 +1,18 @@
 import { CTABlockSection } from "@/components/sections/CTABlockSection";
-import { FeaturesGridSection } from "@/components/sections/FeaturesGridSection";
+import { CategoriesGridSection } from "@/components/sections/CategoriesGridSection";
 import { PageHeroSection } from "@/components/sections/PageHeroSection";
-import { ProcessStepsSection } from "@/components/sections/ProcessStepsSection";
 import { getSectionById, serviciosPageContent } from "@/content/pages";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: serviciosPageContent.title,
-  description: serviciosPageContent.description,
+  title: "Servicios de impresión y encuadernado en Puebla | La Tarjeta",
+  description:
+    "Servicios de impresión y encuadernado en Puebla, además de fotocopiado y material especializado en sucursal.",
 };
 
 export default function ServicesPage() {
   const hero = getSectionById(serviciosPageContent, "hero");
-  const features = getSectionById(serviciosPageContent, "features");
-  const process = getSectionById(serviciosPageContent, "process");
+  const servicios = getSectionById(serviciosPageContent, "servicios");
   const cta = getSectionById(serviciosPageContent, "cta");
 
   return (
@@ -23,8 +22,7 @@ export default function ServicesPage() {
         description={hero.body ?? serviciosPageContent.description ?? ""}
         eyebrow={hero.subheading}
       />
-      <FeaturesGridSection section={features} />
-      <ProcessStepsSection section={process} />
+      <CategoriesGridSection section={servicios} />
       <CTABlockSection section={cta} />
     </>
   );

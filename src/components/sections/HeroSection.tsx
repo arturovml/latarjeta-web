@@ -1,45 +1,30 @@
+import Image from "next/image";
 import Link from "next/link";
 
-import type {
-  CtaItem,
-  HeroChart,
-  HeroMetric,
-  HeroStatus,
-  SectionContent,
-  SectionItem,
-} from "@/content/types";
+import type { CtaItem, SectionContent, SectionItem } from "@/content/types";
 
 type HeroSectionProps = {
   section: SectionContent;
 };
 
-const isMetric = (item: SectionItem): item is HeroMetric =>
-  item.kind === "metric";
-const isStatus = (item: SectionItem): item is HeroStatus =>
-  item.kind === "status";
-const isChart = (item: SectionItem): item is HeroChart =>
-  item.kind === "chart";
 const isCta = (item: SectionItem): item is CtaItem =>
   item.kind === "cta";
 
 export function HeroSection({ section }: HeroSectionProps) {
   const items = section.items ?? [];
-  const metrics = items.filter(isMetric);
-  const statuses = items.filter(isStatus);
-  const chart = items.find(isChart);
   const ctas = items.filter(isCta);
   const primaryCta = ctas.find((cta) => cta.variant === "primary") ?? ctas[0];
   const secondaryCta = ctas.find((cta) => cta.variant === "secondary") ?? ctas[1];
 
   return (
-    <section className="pt-32 pb-20 lg:pt-40 lg:pb-32">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <section className="pt-32 pb-16 lg:pt-36 lg:pb-20">
+      <div className="site-container">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="max-w-xl">
             {section.subheading ? (
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded-full mb-8">
-                <div className="w-1.5 h-1.5 bg-zinc-100 rounded-full" />
-                <span className="text-xs text-zinc-400 tracking-wide uppercase">
+              <div className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1.5 mb-8 shadow-sm">
+                <div className="h-1.5 w-1.5 rounded-full bg-[var(--primary)]" />
+                <span className="text-xs text-neutral-600 tracking-wide">
                   {section.subheading}
                 </span>
               </div>
@@ -49,88 +34,45 @@ export function HeroSection({ section }: HeroSectionProps) {
               {section.heading}
             </h1>
 
-            <p className="text-lg text-zinc-400 leading-relaxed mb-10">
+            <p className="text-lg text-neutral-600 leading-relaxed mb-10">
               {section.body}
             </p>
 
+            {(section.bullets ?? []).length > 0 ? (
+              <ul className="mb-10 space-y-3">
+                {section.bullets?.map((bullet) => (
+                  <li key={bullet} className="flex items-center gap-3 text-neutral-700">
+                    <span className="h-2 w-2 rounded-full bg-[var(--primary)]" aria-hidden="true" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+
             <div className="flex flex-col sm:flex-row gap-4">
               {primaryCta ? (
-                <Link
-                  href={primaryCta.href}
-                  className="px-8 py-4 bg-zinc-100 text-zinc-950 hover:bg-zinc-200 transition-colors text-center"
-                >
+                <Link href={primaryCta.href} className="btn-primary px-8 py-4 text-center">
                   {primaryCta.label}
                 </Link>
               ) : null}
               {secondaryCta ? (
-                <Link
-                  href={secondaryCta.href}
-                  className="px-8 py-4 border border-zinc-700 text-zinc-100 hover:border-zinc-600 hover:bg-zinc-900 transition-colors text-center"
-                >
+                <Link href={secondaryCta.href} className="btn-secondary px-8 py-4 text-center">
                   {secondaryCta.label}
                 </Link>
               ) : null}
             </div>
           </div>
 
-          <div className="relative">
-            <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-8 lg:p-12">
-              <div className="space-y-6">
-                <div className="grid grid-cols-3 gap-4">
-                  {metrics.map((metric) => (
-                    <div
-                      key={metric.label}
-                      className="bg-zinc-950 border border-zinc-800 rounded p-4"
-                    >
-                      <div className="text-xs text-zinc-500 mb-2">
-                        {metric.label}
-                      </div>
-                      <div className="text-2xl">{metric.value}</div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="bg-zinc-950 border border-zinc-800 rounded p-6">
-                  <div className="flex items-end justify-between h-32 gap-2">
-                    {(chart?.bars ?? []).map((height, i) => (
-                      <div
-                        key={`${height}-${i}`}
-                        className="flex-1 bg-zinc-700 rounded-sm"
-                        style={{ height: `${height}%` }}
-                      />
-                    ))}
-                  </div>
-                  <div className="text-xs text-zinc-500 mt-4">
-                    {chart?.label}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  {statuses.map((item) => (
-                    <div
-                      key={item.label}
-                      className="bg-zinc-950 border border-zinc-800 rounded p-4"
-                    >
-                      <div className="flex items-center gap-2 mb-2">
-                        <div
-                          className={`w-2 h-2 rounded-full ${
-                            item.tone === "success"
-                              ? "bg-emerald-500"
-                              : "bg-zinc-500"
-                          }`}
-                        />
-                        <span className="text-xs text-zinc-500">
-                          {item.label}
-                        </span>
-                      </div>
-                      <div className="text-sm">{item.value}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+          <div className="card-soft p-6 lg:p-8">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100">
+              <Image
+                src="/latarjeta_papelerias.jpg"
+                alt="Sucursal La Tarjeta Papelerías"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
-
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-zinc-800/20 rounded-lg -z-10" />
           </div>
         </div>
       </div>

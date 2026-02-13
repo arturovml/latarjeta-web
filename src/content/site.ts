@@ -1,44 +1,73 @@
 import type { SiteContent } from "./types";
 
 export const siteContent = {
-  siteName: "Nodo 88",
-  slogan: "Partner tecnológico",
+  siteName: "La Tarjeta Papelerías",
+  slogan: "Mayoreo y menudeo en Puebla",
   brand: {
-    name: "Nodo 88",
+    name: "La Tarjeta Papelerías",
     description:
-      "Partner tecnológico para gestión de riesgo crediticio, financiamiento de dispositivos y cobranza.",
+      "3 sucursales en el Centro Histórico de Puebla",
   },
   nav: [
     { label: "Inicio", href: "/" },
     { label: "Servicios", href: "/servicios" },
-    { label: "Nosotros", href: "/nosotros" },
-    { label: "FAQ", href: "/faq" },
     { label: "Contacto", href: "/contacto" },
+    { label: "Categorías", href: "/#categorias" },
+    { label: "Mayoreo", href: "/#mayoreo" },
+    { label: "Oferta", href: "/#servicios" },
+    { label: "Sucursales", href: "/#sucursales" },
   ],
   ctas: {
-    primary: { label: "Reserva una demo", href: "/contacto" },
-    secondary: { label: "Cotiza aquí", href: "/contacto" },
+    primary: {
+      label: "Cotizar por WhatsApp",
+      href: "https://wa.me/522229995593",
+      external: true,
+    },
+    secondary: { label: "Ver sucursales", href: "/#sucursales" },
   },
   contact: {
-    email: "contacto@nodo88.com",
-    phone: "+56 9 1234 5678",
-    address: "Santiago, Chile",
+    email: "contacto@latarjeta.mx",
+    phones: ["+52 221 515 3285", "222 296 6241", "221 407 8087"],
+    phone: "+52 221 515 3285",
+    whatsapp: "https://wa.me/522229995593",
+    address: "Centro Histórico, Puebla, México",
   },
   footer: {
     headings: {
-      services: "Servicios",
-      company: "Empresa",
+      services: "Categorías",
+      company: "Contacto",
       legal: "Legal",
     },
     services: [
-      "Riesgo crediticio",
-      "Financiamiento de dispositivos",
-      "Cobranza",
-      "Reportería",
+      "Papelería escolar",
+      "Papelería de oficina",
+      "Arte y manualidades",
+      "Temporada escolar",
     ],
-    company: ["Nosotros", "Casos de uso", "Documentación", "Contacto"],
+    company: ["Atención mayorista", "Pedidos por WhatsApp", "Sucursales", "Contacto"],
     legal: ["Legal", "Privacidad", "Términos"],
-    social: ["LinkedIn", "Twitter", "GitHub"],
-    copyright: "© 2026 Nodo 88. Todos los derechos reservados.",
+    social: [
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/latarjetapapelerias/",
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/tarjetapapelerias/",
+      },
+    ],
+    quickLinks: [
+      { label: "WhatsApp", href: "https://wa.me/522229995593" },
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/latarjetapapelerias/",
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/tarjetapapelerias/",
+      },
+      { label: "Legal", href: "/legal" },
+    ],
+    copyright: "© 2026 La Tarjeta Papelerías. Todos los derechos reservados.",
   },
 } as const satisfies SiteContent;
